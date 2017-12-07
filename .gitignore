@@ -18,4 +18,4 @@ npm-debug.log
 .idea
 .swp
 
-./src/assets/styles/index.css
+src/assets/styles/index.css
