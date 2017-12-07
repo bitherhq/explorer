@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchBlocks } from '../actions/blocks';
 import { unixTimeToHumanReadableTime } from '../utils/time';
 
@@ -12,7 +13,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { className, blockList } = this.props;
+    const { className, blockList, history } = this.props;
 
     return (
       <table className={classnames('table', className)}>
@@ -27,13 +28,15 @@ class Home extends React.Component {
         <tbody>
           {
             blockList && blockList.map((block, index) => {
-              console.log('number', block.Timestamp.toString());
-              parseInt(block.Timestamp.toString(), 16);
               return (
                 <tr key={block.Number}>
                   <td>{ index }</td>
-                  <td>{ block.Number }</td>
-                  <td>{ block.Miner }</td>
+                  <td onClick={() => { history.push(`/blocks/${block.Number}`) }}>
+                    <span>{block.Number}</span>
+                  </td>
+                  <td onClick={() => { history.push(`/address/${block.Miner}`) }}>
+                    <span>{block.Miner}</span>
+                  </td>
                   <td>{ unixTimeToHumanReadableTime(parseInt(block.Timestamp.toString(), 16)) }</td>
                 </tr>
               );
@@ -56,4 +59,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(withRouter(Home))

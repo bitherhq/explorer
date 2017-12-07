@@ -6475,6 +6475,10 @@ label.panel-block {
 .p-blocks {
   margin-top: 20px; }
 
+.p-home-blockList tbody td:nth-child(2) span:hover, .p-home-blockList tbody td:nth-child(3) span:hover {
+  text-decoration: underline;
+  cursor: pointer; }
+
 .list-item {
   display: flex;
   justify-content: space-between;

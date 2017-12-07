@@ -1,3 +1,14 @@
 .p-blocks {
   margin-top: 20px;
 }
+
+.p-home-blockList {
+  tbody {
+    td:nth-child(2), td:nth-child(3) {
+      span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
