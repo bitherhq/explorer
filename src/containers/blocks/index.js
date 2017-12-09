@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchBlock } from '../../actions/blocks';
 import List from '../../components/list';
+import blockToView  from '../../transformers/block_to_view';
 
 class Blocks extends Component {
 
@@ -17,14 +18,14 @@ class Blocks extends Component {
     const { blocks, match } = this.props;
     const { blocknumber } = match.params;
     const block = blocks[blocknumber];
-
+    console.log('block', block)
     return (
       <div className="container p-blocks">
         <h1>Block Details</h1>
         <hr />
         {
           block &&
-          <List list={block} className="p-blocks-table" />
+          <List list={blockToView(block)} className="p-blocks-table" />
         }
       </div>
     );

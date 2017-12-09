@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({baseURL: 'http://192.161.167.147:10009/',});
+const axiosInstance = axios.create({baseURL: 'https://api.bither.io/',});
 
 export const setToken = (token) => {
   axiosInstance.defaults.headers.common.Authorization = `Token ${token}`;

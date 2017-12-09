@@ -32,7 +32,7 @@ class Home extends React.Component {
                 <tr key={block.Number}>
                   <td>{ index }</td>
                   <td onClick={() => { history.push(`/blocks/${block.Number}`) }}>
-                    <span>{block.Number}</span>
+                    <span>{parseInt(block.Number, 16)}</span>
                   </td>
                   <td onClick={() => { history.push(`/address/${block.Miner}`) }}>
                     <span>{block.Miner}</span>
