@@ -41,3 +41,17 @@ export const fetchAddress = (address) =>
       return error;
     });
 };
+
+export const fetchNetworkState = () =>
+  (dispatch) => {
+    dispatch(createAction(actionTypes.GET_NETWORK_STATE));
+    return axios.get('/network')
+    .then(res => {
+      dispatch(createAction(actionTypes.GET_NETWORK_STATE_SUCCESS, res.data ));
+    })
+    .catch((error) => {
+      dispatch(createAction(actionTypes.GET_NETWORK_STATE_FAILURE, {
+        error,
+    }));
+  });
+};

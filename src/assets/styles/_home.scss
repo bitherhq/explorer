@@ -5,3 +5,14 @@
 .p-home-blockList {
   width: 100%;
 }
+
+.p-home-networkstates {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-home-networkstate {
+  text-align: center;
+  width: 100%;
+  padding: 60px 0;
+}
