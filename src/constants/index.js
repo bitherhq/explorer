@@ -9,3 +9,7 @@ export const GET_BLOCK_FAILURE = 'get_block_failure';
 export const GET_NETWORK_STATE = 'get_network_state';
 export const GET_NETWORK_STATE_SUCCESS = 'get_network_state_success';
 export const GET_NETWORK_STATE_FAILURE = 'get_network_state_failure';
+
+export const GET_LATESET_TRANSACTIONS = 'get_latest_transactions';
+export const GET_LATESET_TRANSACTIONS_SUCCESS = 'get_latest_transactions_success';
+export const GET_LATESET_TRANSACTIONS_FAILURE = 'get_latest_transactions_failure';

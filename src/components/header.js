@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo-white.png';
 
 export default function(props) {
@@ -6,16 +7,16 @@ export default function(props) {
     <nav className="navbar is-black">
       <div className="navbar-menu container ">
         <div className="navbar-brand">
-          <a className="navbar-item" href="#">
+          <Link to="/" className="navbar-item">
             <img src={Logo} alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
-          </a>
+          </Link>
           <div className="navbar-burger burger" data-target="navMenuColorblack-example">
             <span></span>
-            <span></span>        
+            <span></span>
             <span></span>
           </div>
         </div>
-        <div className="navbar-start">
+        {/* <div className="navbar-start">
           <a className="navbar-item" href="#">Home</a>
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link" href="#">Menu</a>
@@ -25,7 +26,7 @@ export default function(props) {
                 Overview
               </a>
             </div>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

@@ -18,7 +18,7 @@ class Blocks extends Component {
     const { blocks, match } = this.props;
     const { blocknumber } = match.params;
     const block = blocks[blocknumber];
-    console.log('block', block)
+
     return (
       <div className="container p-blocks">
         <h1>Block Details</h1>

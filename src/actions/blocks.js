@@ -55,3 +55,17 @@ export const fetchNetworkState = () =>
     }));
   });
 };
+
+export const fetchLatestTransactions = () =>
+  (dispatch) => {
+    dispatch(createAction(actionTypes.GET_LATESET_TRANSACTIONS));
+    return axios.get('/transactionlist')
+    .then(res => {
+      dispatch(createAction(actionTypes.GET_LATESET_TRANSACTIONS_SUCCESS, res.data ));
+    })
+    .catch((error) => {
+      dispatch(createAction(actionTypes.GET_LATESET_TRANSACTIONS_FAILURE, {
+        error,
+    }));
+  });
+};
