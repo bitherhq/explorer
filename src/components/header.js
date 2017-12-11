@@ -4,7 +4,7 @@ import Logo from '../assets/images/logo-white.png';
 
 export default function(props) {
   return (
-    <nav className="navbar is-black">
+    <nav className="navbar explorer-navbar">
       <div className="navbar-menu container ">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">

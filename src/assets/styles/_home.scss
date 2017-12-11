@@ -1,22 +1,24 @@
 .p-home-title {
   margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .p-home-blockList {
   width: 100%;
 }
 
-.p-home-networkstates {
-  display: flex;
-  justify-content: space-between;
-}
-
 .p-home-networkstate {
   text-align: center;
-  width: 100%;
-  padding: 40px 0;
-  margin: 10px;
+  padding: 20px 0;
+  margin: 20px;
   border-radius: 5px;
+
+  p:nth-child(2) {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 
   &:nth-child(1) {
     background-color: #209cee;
@@ -38,11 +40,32 @@
 }
 
 .p-home-transactionTable {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+  table {
+    width: 100%;
+  }
 }
 
 .p-home-searchbar {
   margin: 30px 0;
+}
+
+.p-home-block {
+  &:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../images/bg.jpg');
+    min-height: calc(100vh - 3.25rem);
+  }
+
+  &:not(:first-child) {
+    margin: 5rem 0;
+  }
+
+}
+
+.p-home-searchbarTitle {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
 }

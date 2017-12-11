@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { unixTimeToHumanReadableTime } from '../utils/time';
 import { toBither } from '../utils/number';
+import { sliceString } from '../utils/string';
 import { currency } from '../constants/numbers';
 
 
@@ -14,11 +15,11 @@ export default withRouter(function(props) {
       <thead>
         <tr>
           <th></th>
+          <th>Hash</th>
           <th>From</th>
           <th>To</th>
           <th>Value</th>
           <th>Time</th>
-          <th>Hash</th>
         </tr>
       </thead>
       <tbody>
@@ -27,13 +28,17 @@ export default withRouter(function(props) {
             return (
               <tr key={transaction.Hash}>
                 <td>{ index }</td>
-                <td>{transaction.From}</td>
-                <td>{transaction.To}</td>
-                <td onClick={() => { history.push(`/blocks/${transaction.Hash}`) }}>
+                <td className="explorer-link">{sliceString(transaction.Hash)}</td>
+                <td className="explorer-link" title={transaction.From} onClick={() => { history.push(`/address/${transaction.From}`) }}>
+                  {sliceString(transaction.From)}
+                </td>
+                <td className="explorer-link" title={transaction.To} onClick={() => { history.push(`/address/${transaction.To}`) }}>
+                  {sliceString(transaction.To)}
+                </td>
+                <td>
                   <span>{toBither(parseInt(transaction.Value, 16))}</span>
                 </td>
                 <td>{ unixTimeToHumanReadableTime(parseInt(transaction.Timestamp.toString(), 16)) }</td>
-                <td>{transaction.Hash}</td>
               </tr>
             );
           })

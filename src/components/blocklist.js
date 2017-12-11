@@ -31,10 +31,10 @@ class Home extends React.Component {
               return (
                 <tr key={block.Number}>
                   <td>{ index }</td>
-                  <td onClick={() => { history.push(`/blocks/${block.Number}`) }}>
+                  <td className="explorer-link" onClick={() => { history.push(`/blocks/${block.Number}`) }}>
                     <span>{parseInt(block.Number, 16)}</span>
                   </td>
-                  <td onClick={() => { history.push(`/address/${block.Miner}`) }}>
+                  <td className="explorer-link" onClick={() => { history.push(`/address/${block.Miner}`) }}>
                     <span>{block.Miner}</span>
                   </td>
                   <td>{ unixTimeToHumanReadableTime(parseInt(block.Timestamp.toString(), 16)) }</td>

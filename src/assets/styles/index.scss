@@ -2,7 +2,10 @@
 @import '../../../node_modules/bulma/bulma';
 
 // @import './_fonts';
+@import './_globals';
 @import './_home';
 @import './_blocks';
 @import './_list';
 @import './_card';
+@import './_navbar';
+@import './_bulma_override';
