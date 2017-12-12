@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import QRCode from 'qrcode.react'
 import { connect } from 'react-redux';
 import { fetchAddress } from '../../actions/blocks';
 import List from '../../components/list';
@@ -9,7 +10,8 @@ import { currency } from '../../constants/numbers';
 class Address extends Component {
 
   state = {
-    balance: null
+    balance: null,
+    'USD Value': null
   }
 
   componentDidMount() {
@@ -17,21 +19,37 @@ class Address extends Component {
     const { address } = this.props.match.params;
 
     fetchAddress(address).then(response => {
-      this.setState({ balance: { Balance: `${toBither(response.balance)} ${currency}` } })
+      this.setState({
+        balance: { Balance: `${toBither(response.balance)} ${currency}` },
+        'USD Value': 'empty'
+      })
     });
   }
 
   render() {
     const { balance } = this.state;
+    const { address } = this.props.match.params;
 
     return (
       <div className="container p-blocks">
         <h1>Address Details</h1>
-        <hr />
-        {
-          balance &&
-          <List list={balance} />
-        }
+        <div className="columns">
+          <div className="column is-three-quarters">
+            {
+              balance &&
+              <List list={{ ...balance, 'USD Value': this.state['USD Value'] }} />
+            }
+          </div>
+          <div className="column text-center">
+            <QRCode
+              value={address}
+              size={128}
+              bgColor={"#ffffff"}
+              fgColor={"#000000"}
+              level={"L"}
+            />
+          </div>
+        </div>
       </div>
     );
   }

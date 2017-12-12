@@ -13,3 +13,7 @@ export const GET_NETWORK_STATE_FAILURE = 'get_network_state_failure';
 export const GET_LATESET_TRANSACTIONS = 'get_latest_transactions';
 export const GET_LATESET_TRANSACTIONS_SUCCESS = 'get_latest_transactions_success';
 export const GET_LATESET_TRANSACTIONS_FAILURE = 'get_latest_transactions_failure';
+
+export const GET_TRANSACTION = 'get_transaction';
+export const GET_TRANSACTION_SUCCESS = 'get_transaction_success';
+export const GET_TRANSACTION_FAILURE = 'get_transaction_failure';

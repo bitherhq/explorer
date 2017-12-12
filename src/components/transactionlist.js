@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { unixTimeToHumanReadableTime } from '../utils/time';
 import { toBither } from '../utils/number';
 import { sliceString } from '../utils/string';
-import { currency } from '../constants/numbers';
 
 
 export default withRouter(function(props) {
@@ -28,8 +27,15 @@ export default withRouter(function(props) {
             return (
               <tr key={transaction.Hash}>
                 <td>{ index }</td>
-                <td className="explorer-link">{sliceString(transaction.Hash)}</td>
-                <td className="explorer-link" title={transaction.From} onClick={() => { history.push(`/address/${transaction.From}`) }}>
+                <td className="explorer-link"
+                  onClick={() => { history.push(`/transaction/${transaction.Hash}`) }}
+                >
+                  {sliceString(transaction.Hash)}
+                </td>
+                <td
+                  className="explorer-link" title={transaction.From}
+                  onClick={() => { history.push(`/address/${transaction.From}`) }}
+                >
                   {sliceString(transaction.From)}
                 </td>
                 <td className="explorer-link" title={transaction.To} onClick={() => { history.push(`/address/${transaction.To}`) }}>

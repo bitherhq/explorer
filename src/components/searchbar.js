@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
-import { unixTimeToHumanReadableTime } from '../utils/time';
-import { toBither } from '../utils/number';
-import { currency } from '../constants/numbers';
 
 
 export default withRouter(class extends Component {
@@ -15,7 +12,7 @@ export default withRouter(class extends Component {
       if (value.indexOf('0x') > -1) {
         value.length > 45 ? history.push(`/transaction/${value}`) : history.push(`/address/${value}`);      
       } else {
-        history.push(`/blocks/0x${parseInt(value).toString(16)}`);
+        history.push(`/blocks/0x${parseInt(value, 16).toString(16)}`);
       }
     }
   }

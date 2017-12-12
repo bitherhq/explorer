@@ -2,6 +2,8 @@ import axios from '../utils/axios';
 import createAction from '../utils/create-action';
 import * as actionTypes from '../constants';
 
+// TODO: this file should be splited to multiple files
+
 export const fetchBlocks = () =>
   (dispatch) => {
     dispatch(createAction(actionTypes.GET_BLOCK_LIST));
@@ -68,4 +70,18 @@ export const fetchLatestTransactions = () =>
         error,
     }));
   });
+};
+
+export const fetchTransaction = (hash) =>
+  (dispatch) => {
+    dispatch(createAction(actionTypes.GET_TRANSACTION));
+    return axios.get(`/transaction?hash=${hash}`)
+    .then(res => {
+      dispatch(createAction(actionTypes.GET_TRANSACTION_SUCCESS, res.data ));
+      return res.data;
+    })
+    .catch((error) => {
+      dispatch(createAction(actionTypes.GET_TRANSACTION_FAILURE, { error }));
+      return error.data;
+    });
 };
