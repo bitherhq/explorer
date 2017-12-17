@@ -37,7 +37,7 @@ class Address extends Component {
           <div className="column is-three-quarters">
             {
               balance &&
-              <List list={{ ...balance, 'USD Value': this.state['USD Value'] }} />
+              <List list={{ ...balance }} />
             }
           </div>
           <div className="column text-center">
