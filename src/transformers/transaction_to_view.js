@@ -14,7 +14,6 @@ export default function(transaction) {
     GasPrice: parseInt(transaction.GasPrice, 16),
     Input: transaction.Input,
     Nonce: transaction.Nonce,
-    TransactionIndex: parseInt(transaction.TransactionIndex, 16),
-    'TxReceipt Status': 'true'
+    TransactionIndex: parseInt(transaction.TransactionIndex)
   };
 }
