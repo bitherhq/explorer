@@ -22,7 +22,6 @@ class Home extends Component {
       <div className="p-home">
         <div className="p-home-block">
           <div className="explorer-card container">
-            <h1 className="p-home-searchbarTitle">Search Bither Explorer</h1>
             <Searchbar className="p-home-searchbar" />
           </div>
         </div>
