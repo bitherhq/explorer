@@ -6,6 +6,7 @@ import TransactionsTable from '../../components/transactionlist';
 import Searchbar from '../../components/searchbar';
 import Footer from '../../components/footer';
 import { fetchNetworkState, fetchLatestTransactions } from '../../actions/blocks';
+import HashRateTransformer from '../../transformers/hashrate';
 
 class Home extends Component {
 
@@ -39,7 +40,7 @@ class Home extends Component {
               </div>
               <div className="column p-home-networkstate">
                 <p><i className="fa fa-4x fa-globe" aria-hidden="true"></i></p>
-                <p>Hashrate: {networkState.Hashrate}</p>
+                <p>Hashrate: {HashRateTransformer(networkState.Hashrate)}</p>
               </div>
               <div className="column p-home-networkstate">
                 <p><i className="fa fa-4x fa-exchange" aria-hidden="true"></i></p>

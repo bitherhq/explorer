@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.bither.io/v1/',
-  headers: {'X-Auth-Token': 'mytoken'}
+  baseURL: 'https://api.bither.io/v1/'
 });
 
 export const setToken = (token) => {
